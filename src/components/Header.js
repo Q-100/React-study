@@ -1,5 +1,5 @@
 import "./Header.modules.css"
-import dummy from "../db/data.json"
+
 function Header() {
     return (
         <div className="black-nav">
