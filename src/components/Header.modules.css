@@ -2,3 +2,14 @@
 
 /* import styles from css경로(./Customer.modules.css) */
 /* 컴포넌트 안에서 각자 모듈 css를 사용할려면 태그 안에 className={styles.클래스명} */
+.black-nav {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  display: flex;
+  color: white;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
