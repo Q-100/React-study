@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./List.modules.css";
 import dummy from "../db/data.json"
+import { useParams } from "react-router-dom"
 function List() {
     let [num, numfunc] = useState(0);
-    let [title, titlefunc] = useState(["오늘 저녁은 찹스테이크", "리액트 공부", "코인 ㅈ됬다"]);
+    const listparam = useParams().catalog;
+    const title_kind = dummy.titles.filter(title => title.kind === listparam);
+    console.log(listparam)
     return (
         <div className="list" >
-            {dummy.titles.map(title => (
+            {title_kind.map(title => (
                 <div>
                     <h3>{title.title} <span onClick={() => { numfunc(num + 1) }}>★</span>{num}</h3>
                     <p>2월 17일 발행</p>

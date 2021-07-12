@@ -4,6 +4,7 @@ import Catalog from "./components/Catalog";
 import Customer from "./components/Customer"
 import Header from "./components/Header";
 import List from "./components/List";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   // 모든 함수형 컴포넌트 이름은 대문자로 시작해야함
@@ -19,15 +20,20 @@ function App() {
   // }
 
   return (
-    <div className="App">
-      <Header />
-      <Catalog />
-      <List />
-      {/* <Customer age={10} /> */}
-      {/* 이런식으로 컴포넌트 여러개를 하더라도 각 기능과 동작은 각각 일어남 */}
-      {/* <Customer age={20} /> */}
-      {/* <Customer age={30} /> */}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Switch>
+          {/* url에 따라 각각 다른페이지 보여줌 */}
+          <Route exact path="/">
+            <Catalog />
+          </Route>
+          <Route path="/list/:catalog">
+            <List />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
 
   );
 }
